@@ -56,120 +56,13 @@ txtfile.WriteBlankLines(1)
 Next
 
 
-
-
-
 '----------------------------- Nome PC
 txtfile.write ("|HOSTNAME|")
 txtfile.WriteBlankLines(1)
 txtfile.Write (nomepc)
 txtfile.WriteBlankLines(1)
 txtfile.Write ("==================================================")
-'--------------- Software
-'strComputer = "."
-'strProperties = "*"'"CSName, Caption, OSType, Version, OSProductSuite, BuildNumber, 'ProductType, OSLanguage, CSDVersion, InstallDate, RegisteredUser, Organization, 'SerialNumber, WindowsDirectory, SystemDirectory"
-'objClass = "Win32_OperatingSystem"
-'strQuery = "SELECT " & strProperties & " FROM " & objClass
-'Set colOS = objWMIService.ExecQuery(strQuery, , wbemFlagReturnImmediately + 'wbemFlagForwardOnly)
-'For Each objItem in colOS
-'txtfile.write ("Sistema Operacional: " +objItem.Caption)
-'txtfile.WriteBlankLines(1)
-'If SO_Type = 16 Then
-'SO_Name = "Microsoft Windows 95"
-'ElseIf SO_Type = 17 Then
-'SO_Name = "Microsoft Windows 98"
-'End If
-'If SO_ProdType = 1 Then
-'SO_ProdType = "Esta??o de Trabalho"
-'ElseIf SO_ProdType = 2 Then
-'SO_ProdType = "Controlador de Dom?nio"
-'ElseIf SO_ProdType = 3 Then
-'SO_ProdType = "Servidor"
-'End If
-'If SO_Language = 1033 Then
-'SO_Language = "Ingl?s - Estados Unidos"
-'ElseIf SO_Language = 1046 Then
-'SO_Language = "Portugu?s - Brasil"
-'Else
-'SO_Language = "Outro idioma"
-'End If
-'If SO_Suite = 1 Then
-'SO_Suite = "Small Business"
-'ElseIf SO_Suite = 2 Then
-'SO_Suite = "Enterprise"
-'ElseIf SO_Suite = 4 Then
-'SO_Suite = "Backoffice"
-'ElseIf SO_Suite = 8 Then
-'SO_Suite = "Communication Server"
-'ElseIf SO_Suite = 16 Then
-'SO_Suite = "Terminal Server"
-'ElseIf SO_Suite = 18 Then
-'SO_Suite = "Enterprise e Terminal Server"
-'ElseIf SO_Suite = 32 Then
-'SO_Suite = "Small Business (Restrito)"
-'ElseIf SO_Suite = 64 Then
-'SO_Suite = "Embedded NT"
-'ElseIf SO_Suite = 128 Then
-'SO_Suite = "Data Center"
-'ElseIf SO_Suite = 256 Then
-'SO_Suite = "Single User"
-'ElseIf SO_Suite = 512 Then
-'SO_Suite = "Personal"
-'ElseIf SO_Suite = 1024 Then
-'SO_Suite = "Blade"
-'End If
-'Next
 
-'------------------------------------------------------Funcao Chave windows
-'Set WshShell = CreateObject("WScript.Shell")
-'Function ConvertToKey(Key)
-
-'Const KeyOffset = 52
-'i = 28
-'Chars = "BCDFGHJKMPQRTVWXY2346789"
-'Do
-'Cur = 0
-'x = 14
-'Do
-'Cur = Cur * 256
-'Cur = Key(x + KeyOffset) + Cur
-'Key(x + KeyOffset) = (Cur \ 24) And 255
-'Cur = Cur Mod 24
-'x = x -1
-'Loop While x >= 0
-'i = i -1
-'KeyOutput = Mid(Chars, Cur + 1, 1) & KeyOutput
-'If (((29 - i) Mod 6) = 0) And (i <> -1) Then
-'i = i -1
-'KeyOutput = "-" & KeyOutput
-'End If
-'Loop While i >= 0
-'ConvertToKey = KeyOutput
-'End Function
-
-'txtfile.write("Chave: " +ConvertToKey(WshShell.RegRead("HKLM\SOFTWARE\Microsoft'\Windows NT\CurrentVersion\DigitalProductId")))
-'txtfile.WriteBlankLines(1)
-'--------------------------------------------------Descobrir Office
-'strComputer = "."
-'Set objWMIService = GetObject("winmgmts:" _
-'     & "{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
-' Set colSoft = objWMIService.ExecQuery("SELECT * FROM Win32_Product WHERE Name Like 'Microsoft Office%'")
-
- 'If colSoft.Count = 0 Then
- '   txtfile.write ("Não possui office: Libre Office" )
- 'else
- '   For Each objItem In colSoft
- '       txtfile.write ("Office: " & objitem.caption) 
- '      exit for
- '   Next
- 'End If
-txtfile.WriteBlankLines(1)
-txtfile.Write("|OFFICE & WINDOWS|")
-txtfile.WriteBlankLines(1)
-
-
-
-'----------------------------------------------------MAC
 'Descobrir sistema
 strComputer = "."
 strProperties = "*"'"CSName, Caption, OSType, Version, OSProductSuite, BuildNumber, ProductType, OSLanguage, CSDVersion, InstallDate, RegisteredUser, Organization, SerialNumber, WindowsDirectory, SystemDirectory"
@@ -196,6 +89,7 @@ txtfile.WriteBlankLines(1)
 txtfile.Write ("==================================================")
 txtfile.WriteBlankLines(1)
 Else 
+	txtfile.WriteBlankLines(2)
     txtfile.write ("|MAC|")
     strComputer = "."
     Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\CIMV2")
@@ -356,40 +250,6 @@ IP_Address = objItem.IPAddress
 txtfile.write (IP_Address(i))
 txtfile.WriteBlankLines(1)
 Next
-txtfile.WriteBlankLines(1)
-txtfile.Write ("==================================================")
-txtfile.WriteBlankLines(1)
-txtfile.write("*****Instituto das Cidades Inteligentes******")
-txtfile.WriteBlankLines(1)
-txtfile.write("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-txtfile.WriteBlankLines(1)
-txtfile.write("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-txtfile.WriteBlankLines(1)
-txtfile.write("@@@@@@@@@@@@@@@@@@@@@@          @@@@@@@@@@@@@")
-txtfile.WriteBlankLines(1)
-txtfile.write("@@@@@@@@@@@@@@@@               @@@@@@@@@@@@@@")
-txtfile.WriteBlankLines(1)
-txtfile.write("@@@@@@@@@@@@           @@@@@@@      @@@@@@@@@")
-txtfile.WriteBlankLines(1)
-txtfile.write("@@@@@@@@@@         @@@@@@@@@@@@@@     @@@@@@@")
-txtfile.WriteBlankLines(1)
-txtfile.write("@@@@@@@@@@         @@@@@@@@@@       @@@@@@@@@")
-txtfile.WriteBlankLines(1)
-txtfile.write("@@@@@@@@@@@             @@   @@@@@@@@@@@@@@@@")
-txtfile.WriteBlankLines(1)
-txtfile.write("@@@@@@@@@@@@@@@          @@@@@@@@@@@@@@@@@@@@")
-txtfile.WriteBlankLines(1)
-txtfile.write("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-txtfile.WriteBlankLines(1)
-txtfile.write("@@@@@@@@@@@@@ @@@@@     @@@@  @@@@@@@@@@@@@@@")
-txtfile.WriteBlankLines(1)
-txtfile.write("@@@@@@@@@@@@@ @@@@  @@@@@@@@  @@@@@@@@@@@@@@@")
-txtfile.WriteBlankLines(1)
-txtfile.write("@@@@@@@@@@@@@ @@@@@    @@@@@  @@@@@@@@@@@@@@@")
-txtfile.WriteBlankLines(1)
-txtfile.write("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-txtfile.WriteBlankLines(1)
-txtfile.write("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 txtfile.WriteBlankLines(1)
 Wscript.Echo "Informações adicionadas com êxito!" & vbCrLf & vbCrLf & vbCrLf & "Script desenvolvido por Daniel Bonato | 2020"
 wscript.quit
