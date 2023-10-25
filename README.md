@@ -16,3 +16,5 @@ Developed in Visual Basic Script and retrieves the following information:
 - Graphics card.
 
 It saves all the information in a .txt file with the hostname as the title.
+
+https://bonato.coat.team/pages/InvScript.html
