@@ -14,4 +14,5 @@ Developed in Visual Basic Script and retrieves the following information:
 - HDD/SSD
 - IP
 - Graphics card.
+
 It saves all the information in a .txt file with the hostname as the title.
